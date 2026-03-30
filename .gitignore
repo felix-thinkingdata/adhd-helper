@@ -1,0 +1,6 @@
+/.idea/
+/dist/
+/.claude/
+/node_modules/
+src-tauri/target/
+/package-lock.json
