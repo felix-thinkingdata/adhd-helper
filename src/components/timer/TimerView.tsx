@@ -22,25 +22,33 @@ export function TimerView({ timer, currentTask }: TimerViewProps) {
   const phaseLabel = phase === 'focus' ? '专注中' : phase === 'break' ? '休息中' : '准备就绪';
 
   return (
-    <div className="timer-view">
-      <CircularProgress timerState={timerState} />
-      <div className="timer-phase-label">{phaseLabel}</div>
-      <TimerControls
-        isRunning={is_running}
-        isPaused={is_paused}
-        phase={phase}
-        onStartFocus={startFocus}
-        onStartBreak={startBreak}
-        onPause={pause}
-        onResume={resume}
-        onStop={stop}
-      />
-      {currentTask && is_running && phase === 'focus' && (
-        <div className="current-task-inline">
-          <span className="current-task-label">正在做：</span>
-          <span className="current-task-title">{currentTask.title}</span>
+    <div className={`timer-view timer-view-${phase}`}>
+      <div className="mainline-layout">
+        <div className="mainline-rail" aria-hidden="true">
+          <span className={`mainline-node ${is_running && phase === 'focus' ? 'active' : ''}`} />
         </div>
-      )}
+        <div className="mainline-content">
+          <p className="mainline-kicker">现在回到这一件事</p>
+          {currentTask && is_running && phase === 'focus' && (
+            <div className="current-task-inline">
+              <span className="current-task-label">正在做</span>
+              <span className="current-task-title">{currentTask.title}</span>
+            </div>
+          )}
+          <CircularProgress timerState={timerState} />
+          <div className="timer-phase-label">{phaseLabel}</div>
+          <TimerControls
+            isRunning={is_running}
+            isPaused={is_paused}
+            phase={phase}
+            onStartFocus={startFocus}
+            onStartBreak={startBreak}
+            onPause={pause}
+            onResume={resume}
+            onStop={stop}
+          />
+        </div>
+      </div>
     </div>
   );
 }
