@@ -342,6 +342,7 @@ body {
   color: var(--text-0);
   font-weight: 700;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 /* ===== Buttons ===== */
