@@ -215,8 +215,8 @@ body {
 }
 
 @keyframes breathe {
-  0%, 100% { filter: drop-shadow(0 0 6px rgba(217, 107, 107, 0.15)); }
-  50% { filter: drop-shadow(0 0 14px rgba(217, 107, 107, 0.30)); }
+  0%, 100% { filter: drop-shadow(0 0 6px var(--focus-glow)); }
+  50% { filter: drop-shadow(0 0 14px var(--focus-glow)); }
 }
 
 .ring-break {
@@ -224,8 +224,8 @@ body {
 }
 
 @keyframes breathe-break {
-  0%, 100% { filter: drop-shadow(0 0 6px rgba(122, 184, 138, 0.15)); }
-  50% { filter: drop-shadow(0 0 14px rgba(122, 184, 138, 0.30)); }
+  0%, 100% { filter: drop-shadow(0 0 6px var(--break-glow)); }
+  50% { filter: drop-shadow(0 0 14px var(--break-glow)); }
 }
 
 .progress-text {
@@ -387,7 +387,7 @@ body {
 
 .btn-preset:hover {
   background: var(--accent-dim);
-  border-color: rgba(212, 132, 90, 0.25);
+  border-color: var(--accent-glow);
   color: var(--accent);
 }
 
@@ -413,8 +413,11 @@ body {
 .reminder-mode-toggle .btn-toggle.active {
   background: var(--accent);
   color: #0f1719;
-  border-color: var(--accent);
   font-weight: 650;
+}
+
+.btn-option.active {
+  border-color: var(--accent);
 }
 
 .btn-toggle {
@@ -437,7 +440,7 @@ body {
 .btn-toggle.active {
   background: var(--accent-dim);
   color: var(--accent);
-  border-color: rgba(212, 132, 90, 0.2);
+  border-color: var(--accent-glow);
 }
 
 /* ===== Input ===== */
@@ -455,8 +458,8 @@ body {
 }
 
 .input:focus {
-  border-color: rgba(212, 132, 90, 0.4);
-  box-shadow: 0 0 0 3px rgba(212, 132, 90, 0.08);
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 0 3px var(--accent-dim);
 }
 
 .input::placeholder {
